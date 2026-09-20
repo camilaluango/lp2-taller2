@@ -50,11 +50,11 @@ class Producto(db.Model):
     # TODO 4: Define la llave foránea hacia la tabla 'categorias'.
     #         Pista: db.Column(db.Integer, db.ForeignKey("categorias.id"),
     #                          nullable=False)
-    # categoria_id = db.Column(...)
+    categoria_id = db.Column(db.Integer, db.ForeignKey("categoria.id"), nullable=False)
 
     def __repr__(self):
-        # TODO 5: Retorna algo como f"<Producto {self.sku} - {self.nombre}>"
-        pass
+        return f"<Producto {self.sku} - {self.nombre}>"
+
 
     @property
     def disponible(self):
