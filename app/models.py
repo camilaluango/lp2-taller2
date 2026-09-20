@@ -42,15 +42,7 @@ class Producto(db.Model):
     stock = db.Column(db.Integer, nullable=False, default=0)
     activo = db.Column(db.Boolean, nullable=False, default=True)
    
-    #
-    # sku = db.Column(...)
-    # marca = db.Column(...)
-    # ...
-
-    # TODO 4: Define la llave foránea hacia la tabla 'categorias'.
-    #         Pista: db.Column(db.Integer, db.ForeignKey("categorias.id"),
-    #                          nullable=False)
-    categoria_id = db.Column(db.Integer, db.ForeignKey("categoria.id"), nullable=False)
+    categoria_id = db.Column(db.Integer, db.ForeignKey("categorias.id"), nullable=False)
 
     def __repr__(self):
         return f"<Producto {self.sku} - {self.nombre}>"
@@ -58,9 +50,5 @@ class Producto(db.Model):
 
     @property
     def disponible(self):
-        """True si el producto está activo y tiene unidades en stock.
-
-        TODO 6: Retorna True solamente si self.activo es verdadero
-                Y self.stock es mayor que 0.
-        """
-        pass
+        """True si el producto está activo y tiene unidades en stock."""
+        return self.activo and self.stock > 0

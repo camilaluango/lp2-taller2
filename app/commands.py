@@ -26,9 +26,8 @@ def registrar_comandos(app):
     @app.cli.command("init-db")
     def init_db():
         """Crea todas las tablas definidas en models.py."""
-        # TODO 1: Llama a db.create_all() para crear las tablas.
-        # TODO 2: Muestra un mensaje de confirmación con click.echo(...)
-        pass
+        db.create_all()
+        click.echo("base de datos creada correctamente")
 
     @app.cli.command("reset-db")
     def reset_db():
