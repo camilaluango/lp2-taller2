@@ -18,15 +18,11 @@ class Categoria(db.Model):
 
     nombre = db.Column(db.String(80), nullable=False, unique=True)
 
-    # Relación uno-a-muchos: una categoría tiene muchos productos.
-    # 'backref' crea automáticamente el atributo producto.categoria
-    # para poder navegar en sentido contrario.
     productos = db.relationship("Producto", backref="categoria", lazy=True)
 
     def __repr__(self):
         """Representación legible del objeto (útil al depurar)."""
-        # TODO 2: Retorna algo como f"<Categoria {self.nombre}>"
-        pass
+        return f"<Categoria {self.nombre}>"
 
 
 class Producto(db.Model):
@@ -38,14 +34,14 @@ class Producto(db.Model):
     # el identificador interno: la base de datos usa un id numérico.
     id = db.Column(db.Integer, primary_key=True)
 
-    # TODO 3: Define las siguientes columnas con sus restricciones:
-    #   sku      -> db.String(20),  unique=True, nullable=False
-    #   marca    -> db.String(80),  nullable=False
-    #   nombre   -> db.String(160), nullable=False
-    #   precio   -> db.Float,       nullable=False
-    #   foto     -> db.String(200), nullable=True  (puede no tener imagen)
-    #   stock    -> db.Integer,     nullable=False, default=0
-    #   activo   -> db.Boolean,     nullable=False, default=True
+    sku = db.Column(db.String(20), unique=True, nullable=False)
+    marca = db.Column(db.String(80), nullable=False)
+    nombre = db.Column(db.String(160), nullable=False)
+    precio = db.Column(db.Float, nullable=False)
+    foto = db.Column(db.String(200), nullable=True)
+    stock = db.Column(db.Integer, nullable=False, default=0)
+    activo = db.Column(db.Boolean, nullable=False, default=True)
+   
     #
     # sku = db.Column(...)
     # marca = db.Column(...)
