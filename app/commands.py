@@ -45,7 +45,8 @@ def registrar_comandos(app):
         # --- Leer el archivo JSON -------------------------------------
         # TODO 5: Abre RUTA_PRODUCTOS con encoding="utf-8" y usa
         #         json.load() para obtener la lista de productos.
-        # datos = ...
+        with open(RUTA_PRODUCTOS, encoding="utf-8") as f:
+            datos = json.load(f)
 
         # --- Insertar categorías y productos --------------------------
         # Por cada producto del JSON debes:
