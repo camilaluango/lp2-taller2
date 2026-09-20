@@ -32,9 +32,11 @@ def registrar_comandos(app):
     @app.cli.command("reset-db")
     def reset_db():
         """Borra y vuelve a crear todas las tablas (¡pierde los datos!)."""
-        # TODO 3: Llama a db.drop_all() y luego a db.create_all()
+        # TODO 3: Llama a  y luego a db.create_all()
         # TODO 4: Muestra un mensaje de confirmación
-        pass
+        db.drop_all()
+        db.create_all()
+        click.echo("base de datos reiniciada correctamente")
 
     @app.cli.command("seed-db")
     def seed_db():
