@@ -15,11 +15,7 @@ BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 class Config:
     """Configuración base (desarrollo)."""
 
-    # Clave usada por Flask para firmar cookies/sesiones.
-    # TODO 1: Cambia este valor por una cadena secreta propia.
-    #         En un proyecto real se lee de una variable de entorno:
-    #         os.environ.get("SECRET_KEY", "valor-por-defecto")
-    SECRET_KEY = "cambia-esta-clave"
+    SECRET_KEY =  os.environ.get("SECRET_KEY", "valor-por-defecto")
 
     # URI de conexión a la base de datos.
     # Para SQLite el formato es: sqlite:///<ruta-absoluta-al-archivo>
