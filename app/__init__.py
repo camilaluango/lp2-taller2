@@ -19,10 +19,8 @@ def create_app(config_class=Config):
     """Crea y configura la instancia de la aplicación Flask."""
     app = Flask(__name__)
 
-    # TODO 1: Carga la configuración de la clase recibida.
-    #         Pista: app.config.from_object(config_class)
+    app.config.from_object(config_class)
 
-    # Asegura que exista la carpeta instance/ donde vivirá el archivo .db
     os.makedirs(os.path.join(app.root_path, "..", "instance"), exist_ok=True)
 
     # TODO 2: Inicializa SQLAlchemy con esta aplicación.
