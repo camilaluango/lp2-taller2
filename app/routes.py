@@ -22,22 +22,23 @@ def index():
     Soporta filtro opcional por categoría mediante query string:
         /?categoria=<id>
     """
-    # Lee el parámetro ?categoria= de la URL (None si no viene).
     categoria_id = request.args.get("categoria", type=int)
 
-    # TODO 1: Si categoria_id tiene valor, consulta solo los productos de
-    #         esa categoría:
-    #             productos = Producto.query.filter_by(
-    #                 categoria_id=categoria_id).all()
-    #         Si no viene, trae todos los productos:
-    #             productos = Producto.query.all()
+    if categoria_id:
+        productos = Producto.query.filter_by(
+            categoria_id=categoria_id
+        ).all()
+    else:
+        productos = Producto.query.all()
 
-    # TODO 2: Consulta todas las categorías para pintar el menú de filtros:
-    #         categorias = Categoria.query.order_by(Categoria.nombre).all()
+    categorias = Categoria.query.order_by(Categoria.nombre).all()
 
-    # TODO 3: Renderiza "index.html" enviando 'productos', 'categorias' y
-    #         'categoria_id' (para marcar el filtro activo).
-    pass
+    return render_template(
+        "index.html",
+        productos=productos,
+        categorias=categorias,
+        categoria_id=categoria_id,
+    )
 
 
 @main.route("/producto/<sku>")
