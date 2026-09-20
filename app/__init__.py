@@ -23,15 +23,12 @@ def create_app(config_class=Config):
 
     os.makedirs(os.path.join(app.root_path, "..", "instance"), exist_ok=True)
 
-    # TODO 2: Inicializa SQLAlchemy con esta aplicación.
-    #         Pista: db.init_app(app)
+    db.init_app(app)
 
-    # Importar los modelos DENTRO de la factory (y después de init_app)
-    # garantiza que SQLAlchemy conozca las tablas al crear la base de datos.
     from . import models  # noqa: F401
 
-    # TODO 3: Importa el blueprint 'main' desde .routes y regístralo
-    #         con app.register_blueprint(main)
+    from .routes import main
+    app.register_blueprint(main)
 
     # Registra los comandos personalizados de terminal.
     from .commands import registrar_comandos
