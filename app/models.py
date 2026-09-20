@@ -16,11 +16,7 @@ class Categoria(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
 
-    # TODO 1: Define la columna 'nombre':
-    #         - Tipo db.String(80)
-    #         - No puede ser nula (nullable=False)
-    #         - Debe ser única (unique=True), no queremos categorías repetidas
-    # nombre = db.Column(...)
+    nombre = db.Column(db.String(80), nullable=False, unique=True)
 
     # Relación uno-a-muchos: una categoría tiene muchos productos.
     # 'backref' crea automáticamente el atributo producto.categoria

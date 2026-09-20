@@ -30,7 +30,6 @@ def create_app(config_class=Config):
     from .routes import main
     app.register_blueprint(main)
 
-    # Registra los comandos personalizados de terminal.
     from .commands import registrar_comandos
 
     registrar_comandos(app)
