@@ -37,11 +37,8 @@
 
             <a href="{{ url_for('main.detalle', sku=producto.sku) }}">Ver detalle</a>
         </div>
-
-    {# TODO 5: Cierra el ciclo con {% endfor %} #}
-
-    {# TODO 6 (opcional): usa {% else %} dentro del for para mostrar
-       "No hay productos en esta categoría" cuando la lista venga vacía. #}
-
+        {% else %}
+            <p>No hay productos en esta categoría</p>
+        {% endfor %}
 </div>
 {% endblock %}
