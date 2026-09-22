@@ -44,24 +44,14 @@ def index():
 @main.route("/producto/<sku>")
 def detalle(sku):
     """Detalle de un producto, buscado por su SKU en la base de datos."""
+    producto = Producto.query.filter_by(sku=sku).first_or_404()
 
-    # TODO 4: Busca el producto por SKU. La forma más limpia es:
-    #             producto = Producto.query.filter_by(sku=sku).first_or_404()
-    #         first_or_404() devuelve el objeto o lanza un 404 automáticamente,
-    #         así te ahorras el 'if producto is None: abort(404)'.
-
-    # TODO 5: Renderiza "detalle.html" pasándole el producto.
-    pass
+    return render_template("detalle.html", producto=producto)
 
 
 @main.route("/categorias")
 def categorias():
     """Lista de categorías con la cantidad de productos de cada una."""
+    categorias = Categoria.query.order_by(Categoria.nombre).all()
 
-    # TODO 6: Consulta todas las categorías ordenadas por nombre.
-    #         Gracias al backref definido en el modelo, dentro del template
-    #         puedes usar categoria.productos para contar sus productos
-    #         con el filtro |length de Jinja2.
-
-    # TODO 7: Renderiza "categorias.html" con la lista obtenida.
-    pass
+    return render_template("categorias.html", categorias=categorias)
