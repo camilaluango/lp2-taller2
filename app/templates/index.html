@@ -18,15 +18,22 @@
 </div>
 
 <div class="catalogo">
+    {% for producto in productos %}
         <div class="tarjeta-producto">
-            <img src="{{ url_for('static', filename=producto.foto) }}" alt="{{ producto.nombre }}">
+            {% if producto.foto %}
+                <img src="{{ url_for('static', filename=producto.foto) }}" alt="{{ producto.nombre }}">
+                {% endif %}
+
             <h3>{{ producto.nombre }}</h3>
             <p>{{ producto.marca }}</p>
-            <p>{{ producto.categoria.nombre }}</p>   {# viene del backref #}
+            <p>{{ producto.categoria.nombre }}</p>
             <p>${{ "{:,.0f}".format(producto.precio) }}</p>
 
-            TODO 4: usa la propiedad producto.disponible para mostrar
-            "Disponible" o "Agotado" con un {% if %} ... {% else %} ... {% endif %}
+            {% if producto.disponible %}
+                <p class="disponible">Disponible</p>
+            {% else %}
+                <p class="agotado">Agotado</p>
+            {% endif %}
 
             <a href="{{ url_for('main.detalle', sku=producto.sku) }}">Ver detalle</a>
         </div>
