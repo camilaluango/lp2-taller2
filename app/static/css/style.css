@@ -1,52 +1,42 @@
 /* Estilos base de la Tienda Virtual */
 
+:root {
+    --bg: #f3f6fb;
+    --panel: #ffffff;
+    --panel-soft: #eef3ff;
+    --primary: #0f172a;
+    --primary-2: #1d4ed8;
+    --accent: #f59e0b;
+    --success: #16a34a;
+    --danger: #dc2626;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
-    color: #222;
+    background: linear-gradient(180deg, #eef4ff 0%, #f9fafb 100%);
+    color: var(--text);
 }
 
 header {
-    background-color: #1f2937;
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
     color: white;
-    padding: 1rem 2rem;
+    padding: 1.4rem 2rem 1.2rem;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.18);
 }
 
-.catalogo {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 1.5rem;
-    padding: 2rem;
+header h1 {
+    margin: 0;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
 }
-
-.tarjeta-producto {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
-    padding: 1rem;
-    text-align: center;
-}
-
-.tarjeta-producto img {
-    max-width: 100%;
-    height: 160px;
-    object-fit: contain;
-}
-
-.detalle-producto {
-    max-width: 700px;
-    margin: 2rem auto;
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
-}
-
-/* TODO: agrega o modifica estilos a tu gusto (colores, tipografía, etc.) */
-
-/* ---- Estilos nuevos del Taller 2 ---- */
 
 header a {
     color: white;
@@ -55,44 +45,185 @@ header a {
 }
 
 nav {
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+nav a {
+    opacity: 0.9;
+    transition: opacity 0.2s ease;
+}
+
+nav a:hover {
+    opacity: 1;
+}
+
+main {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 2rem 1rem 3rem;
+}
+
+.catalogo {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem 0.4rem 0;
+}
+
+.tarjeta-producto {
+    background: var(--panel);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarjeta-producto:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 30px rgba(15, 23, 42, 0.12);
+}
+
+.tarjeta-producto img {
+    max-width: 100%;
+    height: 170px;
+    object-fit: contain;
+    border-radius: 12px;
+    background: var(--panel-soft);
+    padding: 0.5rem;
+    margin-bottom: 0.85rem;
+}
+
+.tarjeta-producto h3 {
+    margin: 0.5rem 0 0.3rem;
+    font-size: 1.1rem;
+    min-height: 2.8rem;
+}
+
+.tarjeta-producto p {
+    margin: 0.25rem 0;
+    color: var(--muted);
+}
+
+.tarjeta-producto p:nth-of-type(2) {
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 1.05rem;
+}
+
+.tarjeta-producto a {
+    display: inline-block;
+    margin-top: 0.8rem;
+    background: linear-gradient(135deg, var(--primary-2) 0%, #2563eb 100%);
+    color: white;
+    text-decoration: none;
+    padding: 0.7rem 1.1rem;
+    border-radius: 10px;
+    font-weight: 700;
+    transition: filter 0.2s ease;
+}
+
+.tarjeta-producto a:hover {
+    filter: brightness(1.08);
+}
+
+.detalle-producto {
+    max-width: 800px;
+    margin: 2rem auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 18px;
+    box-shadow: var(--shadow);
 }
 
 .filtros {
-    padding: 1.5rem 2rem 0;
+    padding: 1rem 0 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
 }
 
 .chip {
     display: inline-block;
-    padding: 0.35rem 0.9rem;
-    margin-right: 0.5rem;
+    padding: 0.55rem 1rem;
     border-radius: 999px;
-    background: #e5e7eb;
-    color: #374151;
+    background: #e2e8f0;
+    color: var(--text);
     text-decoration: none;
-    font-size: 0.85rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.chip:hover {
+    background: #dbeafe;
 }
 
 .chip-activo {
-    background: #1f2937;
+    background: linear-gradient(135deg, var(--primary) 0%, #334155 100%);
     color: white;
 }
 
 .agotado {
-    color: #b91c1c;
+    color: var(--danger);
     font-weight: bold;
 }
 
 .disponible {
-    color: #15803d;
+    color: var(--success);
     font-weight: bold;
 }
 
 .lista-categorias {
-    max-width: 700px;
+    max-width: 800px;
     margin: 2rem auto;
     background: white;
     padding: 2rem;
-    border-radius: 8px;
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+}
+
+.lista-categorias ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+}
+
+.lista-categorias li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 0.9rem 1rem;
+    margin-bottom: 0.7rem;
+    border: 1px solid #e2e8f0;
+}
+
+.badge {
+    background: var(--primary-2);
+    color: white;
+    border-radius: 999px;
+    padding: 0.3rem 0.65rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+@media (max-width: 600px) {
+    header {
+        padding: 1.2rem 1rem;
+    }
+
+    main {
+        padding: 1.2rem 0.75rem 2rem;
+    }
+
+    .catalogo {
+        grid-template-columns: 1fr;
+    }
 }
