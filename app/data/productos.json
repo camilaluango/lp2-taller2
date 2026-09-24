@@ -78,5 +78,125 @@
     "stock": 20,
     "activo": true,
     "categoria": "Accesorios"
+  },
+  {
+    "sku": "TEC-005",
+    "marca": "Logitech",
+    "nombre": "Teclado compacto inalámbrico",
+    "precio": 169900,
+    "foto": "images/101.jpg",
+    "stock": 9,
+    "activo": true,
+    "categoria": "Periféricos"
+  },
+  {
+    "sku": "TEC-006",
+    "marca": "WD",
+    "nombre": "SSD 1TB NVMe",
+    "precio": 499900,
+    "foto": "images/104.jpg",
+    "stock": 14,
+    "activo": true,
+    "categoria": "Almacenamiento"
+  },
+  {
+    "sku": "TEC-007",
+    "marca": "SanDisk",
+    "nombre": "Pendrive USB 128GB",
+    "precio": 78900,
+    "foto": "images/201.jpg",
+    "stock": 26,
+    "activo": true,
+    "categoria": "Almacenamiento"
+  },
+  {
+    "sku": "AUD-003",
+    "marca": "HyperX",
+    "nombre": "Micrófono USB para streaming",
+    "precio": 249900,
+    "foto": "images/203.jpg",
+    "stock": 7,
+    "activo": true,
+    "categoria": "Audio"
+  },
+  {
+    "sku": "MON-002",
+    "marca": "Samsung",
+    "nombre": "Monitor curvo 27 pulgadas",
+    "precio": 899900,
+    "foto": "images/207.jpg",
+    "stock": 4,
+    "activo": true,
+    "categoria": "Pantallas"
+  },
+  {
+    "sku": "MON-003",
+    "marca": "Acer",
+    "nombre": "Monitor gaming 32 pulgadas",
+    "precio": 1199900,
+    "foto": "images/208.jpg",
+    "stock": 3,
+    "activo": true,
+    "categoria": "Pantallas"
+  },
+  {
+    "sku": "ACC-001",
+    "marca": "Anker",
+    "nombre": "Hub USB-C 7 en 1",
+    "precio": 129900,
+    "foto": "images/301.jpg",
+    "stock": 18,
+    "activo": true,
+    "categoria": "Accesorios"
+  },
+  {
+    "sku": "ACC-002",
+    "marca": "Targus",
+    "nombre": "Base para laptop con enfriamiento",
+    "precio": 219900,
+    "foto": "images/302.jpg",
+    "stock": 11,
+    "activo": true,
+    "categoria": "Accesorios"
+  },
+  {
+    "sku": "TEC-008",
+    "marca": "A4Tech",
+    "nombre": "Ratón ergonómico RGB",
+    "precio": 119900,
+    "foto": "images/304.jpg",
+    "stock": 15,
+    "activo": true,
+    "categoria": "Periféricos"
+  },
+  {
+    "sku": "AUD-004",
+    "marca": "JBL",
+    "nombre": "Altavoz Bluetooth portátil mini",
+    "precio": 179900,
+    "foto": "images/301.jpg",
+    "stock": 5,
+    "activo": true,
+    "categoria": "Audio"
+  },
+  {
+    "sku": "CAM-002",
+    "marca": "Razer",
+    "nombre": "Cámara web 4K con microfono",
+    "precio": 329900,
+    "foto": "images/camara.jpg",
+    "stock": 8,
+    "activo": true,
+    "categoria": "Accesorios"
+  },
+  {
+    "sku": "TEC-009",
+    "marca": "Seagate",
+    "nombre": "Disco duro externo 2TB",
+    "precio": 389900,
+    "foto": "images/disco.png",
+    "stock": 6,
+    "activo": true,
+    "categoria": "Almacenamiento"
   }
 ]
